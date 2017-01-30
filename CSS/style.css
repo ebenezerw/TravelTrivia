@@ -16,6 +16,7 @@ header {
 h1, h3 {
 	text-align: center;
 	margin: 0px;
+	font-size: 12px;
 }
 
 .travelPic {
@@ -42,10 +43,10 @@ h1, h3 {
 	border-radius: 1%;
 }
 
-.answer {
+#answer {
 	width: 500px;
 	height: 100px;
-	background: gray;
+	/*background: gray;*/
 	margin: 1px;
 }
 
