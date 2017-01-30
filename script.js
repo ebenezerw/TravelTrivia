@@ -1,4 +1,3 @@
-console.log("JS Works")
 
 //list of questions
 
