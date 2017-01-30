@@ -1,0 +1,75 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+	width: 75%;
+	margin: 0 auto;
+	min-height: 100vh;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #5b738a;
+	padding: 10px;
+}
+
+header {
+	margin: 0px 0px 25px 0px;
+}
+
+h1, h3 {
+	text-align: center;
+	margin: 0px;
+}
+
+.travelPic {
+	height: 400px;
+	width: 500px;
+	background-image: url("../images/san-francisco-2.jpg");
+	background-size: cover;
+}
+
+.playArea {
+	width: 500px;
+	height: 75vh;
+	display: flex;
+	margin: 0 auto;
+	flex-direction: column;
+
+}
+
+.question {
+	width: 500px;
+	height: 150px;
+	background-color: white;
+	margin: 2px 0px;
+	border-radius: 1%;
+}
+
+.answer {
+	width: 500px;
+	height: 100px;
+	background: gray;
+	margin: 1px;
+}
+
+/*button {
+	width: 100px;
+	height: 50px;
+	position: center;
+}*/
+
+/*.answer:hover{
+	background-color: gray;
+}*/
+
+/*.answer:active{
+	background-color: orange;
+}*/
+
+
+
+
+
+
+
+
+
+
+
