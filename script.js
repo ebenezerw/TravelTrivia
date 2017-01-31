@@ -38,7 +38,7 @@ function displayCurrentQuestion() {
     var numChoices = questions[currentQuestion].choices.length;
 
     
-    $(questionClass).html(question);
+    $(questionClass).text(question);
     $(choiceList).find(".answer").remove();
  
 
@@ -67,7 +67,7 @@ $(document).ready(function() {
                 // $(document).find(".question").show();
             } else {
                 
-                $(document).find(".question").hide();
+                $(document).find(".question");
 
                 if (value == questions[currentQuestion].correctAnswer) {
                     correctAnswers++;
