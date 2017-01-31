@@ -57,12 +57,9 @@ function displayCurrentQuestion() {
 
 
 
-
-
-
 $(document).ready(function() {
 	displayCurrentQuestion();
-
+     $('.resetButton').css("display", "none");
     // On clicking submit, display the next question
     $(this).find(".submitButton").on("click", function () {
 
@@ -75,7 +72,6 @@ $(document).ready(function() {
                 
                 $(document).find(".question");
                 if (value == questions[currentQuestion].correctAnswer) {               
-                    // alert("Great Job!");
 
                     notif({
                         msg: "Correct!",
@@ -97,9 +93,6 @@ $(document).ready(function() {
                         timeout: 5000
                     })
 
-
-                    // alert("Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswerText);
-                    // console.log(questions[currentQuestion].correctAnswer);
                     correctAnswers++
                 }
 
@@ -108,9 +101,23 @@ $(document).ready(function() {
                 currentQuestion++;
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
+
                 } else  {
-                    alert("Game Over");
-                    location.reload();
+                    
+                    
+                    setTimeout (function(){
+                        $(".resetButton").css("display", "block");
+                        $(".submitButton").css("display", "none");
+                        notif({
+                            msg: "Game Over! Click the Reset button bellow to play again.",
+                            type: "error",
+                            position: "right",
+                            autohide: 0
+
+                        })
+
+                    }, 4000);
+
                 }
             } 
             
@@ -119,50 +126,9 @@ $(document).ready(function() {
 
 });
 
-
-// notif({
-
-// msg: "<b>Success:</b> In 5 seconds i'll be gone",
-
-// type: "success"
-
-// });
-
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$(".resetButton").on("click", function () {
+    location.reload();
+})
 
 
 
