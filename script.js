@@ -75,14 +75,31 @@ $(document).ready(function() {
                 
                 $(document).find(".question");
                 if (value == questions[currentQuestion].correctAnswer) {               
-                    alert("Great Job!");
+                    // alert("Great Job!");
+
+                    notif({
+                        msg: "Correct!",
+                        type: "success",
+                        position: "center",
+                        timeout: 3000
+                    });
+
                     correctAnswers++;
 
             } else {
                 $(document).find(".question");
                 if (value != questions[currentQuestion].correctAnswer){
-                    alert("Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswerText);
-                    console.log(questions[currentQuestion].correctAnswer);
+
+                    notif({
+                        msg: "Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswerText,
+                        type: "error",
+                        position: "center",
+                        timeout: 5000
+                    })
+
+
+                    // alert("Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswerText);
+                    // console.log(questions[currentQuestion].correctAnswer);
                     correctAnswers++
                 }
 
@@ -92,7 +109,7 @@ $(document).ready(function() {
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
                 } else  {
-                    jAlert("Game Over");
+                    alert("Game Over");
                     location.reload();
                 }
             } 
@@ -103,6 +120,15 @@ $(document).ready(function() {
 });
 
 
+// notif({
+
+// msg: "<b>Success:</b> In 5 seconds i'll be gone",
+
+// type: "success"
+
+// });
+
+// }
 
 
 
