@@ -73,7 +73,7 @@ $(document).ready(function() {
             } else {
                 $(document).find(".question");
                 if (value != questions[currentQuestion].correctAnswer){
-                    alert("Wrong!!");
+                    alert("Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswer);
                     correctAnswers++
                 }
 
@@ -82,6 +82,8 @@ $(document).ready(function() {
                 currentQuestion++;
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
+                } else  {
+                    alert("Game Over");
                 }
             } 
             
