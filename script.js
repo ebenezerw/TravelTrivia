@@ -9,10 +9,10 @@ var questions = [{
 }, {
     question: "How tall is the Empire State Building?",
     choices: ["1399 Feet", "1454 Feet", "1776 Feet"],
-    correctAnswer: 0
+    correctAnswer: 1
 }, {
     question: "What is the busiest train station in the world?",
-    choices: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, Chine", "Gard du Nord"],
+    choices: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, China"],
     correctAnswer: 0
 }, {
     question: "What is the longest river?",
@@ -26,7 +26,7 @@ var questions = [{
 
 var currentQuestion = 0;
 var correctAnswers = 0;
-var quizOver = false;
+
 
 function displayCurrentQuestion() {
 
@@ -45,52 +45,47 @@ function displayCurrentQuestion() {
     var choice;
     for (i = 0; i < numChoices; i++) {
         choice = questions[currentQuestion].choices[i];
- $('<div class="answer"><input type="radio" value=' + i + ' name="dynradio" />' + choice + '</div>').appendTo(choiceList);
+ $('<div class="answer"><input type="radio" value=' + i + ' name="radio" />' + choice + '</div>').appendTo(choiceList);
     }
-}
+};
 
 
 
 
 $(document).ready(function() {
 	displayCurrentQuestion();
-    $(this).find(".question").hide;
 
     // On clicking submit, display the next question
     $(this).find(".submitButton").on("click", function () {
-        if (!quizOver) {
 
             value = $("input[type='radio']:checked").val();
 
             if (value == undefined) {
                 $(document).find(".submitButton").text("Please select an answer");
-                // $(document).find(".question").show();
+    
             } else {
                 
                 $(document).find(".question");
-
-                if (value == questions[currentQuestion].correctAnswer) {
+                if (value == questions[currentQuestion].correctAnswer) {               
+                    alert("Great Job!");
                     correctAnswers++;
+
+            } else {
+                $(document).find(".question");
+                if (value != questions[currentQuestion].correctAnswer){
+                    alert("Wrong!!");
+                    correctAnswers++
                 }
+
+            }
 
                 currentQuestion++;
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
-                } else {
-                    displayScore();
-               
-                    
-                    $(document).find(".submitButton").text("Play Again?");
-                    quizOver = true;
                 }
-            }
-        } else { // quiz is over and clicked the next button (which now displays 'Play Again?'
-            quizOver = false;
-            $(document).find(".submitButton").text("Next Question");
-            resetQuiz();
-            displayCurrentQuestion();
+            } 
             
-        }
+        
     });
 
 });
@@ -133,11 +128,6 @@ $(document).ready(function() {
 
 
 
-
-
-
-
-//display current question
 
 
 

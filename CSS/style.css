@@ -31,14 +31,14 @@ h3 {
 
 .travelPic {
 	height: 300px;
-	width: 500px;
+	width: 700px;
 	background-image: url("../images/placeholder.jpg");
 	background-size: cover;
 	background-position: center;
 }
 
 .playArea {
-	width: 500px;
+	width: 700px;
 	height: 75vh;
 	display: flex;
 	margin: 0 auto;
@@ -48,27 +48,30 @@ h3 {
 
 .question {
 	display: flex;
-	width: 500px;
+	width: 700px;
 	height: 50px;
 	background-color: orange;
 	margin: 2px 0px;
 	border-radius: 1%;
 	justify-content: center;
 	align-items: center;
+	color: black;
+	font-weight: bold;
 }
 
 #answer {
 	display: flex;
-	width: 500px;
+	width: 700px;
 	height: 100px;
 	background: gray;
 	margin: 1px 0px 3px 0px;
 	align-items: center;
 	justify-content: space-around;
+	font-weight: bold;
 }
 
 button {
-	width: 500px;
+	width: 700px;
 	height: 25px;
 	position: center;
 	border: none;
@@ -78,11 +81,11 @@ button:hover{
 	background-color: #008ae3;
 }
 
-/*.answer:active{
-	background-color: orange;
-}*/
+/*#answer:hover{
+	color: orange;
+}
 
-
+*/
 
 
 
