@@ -5,11 +5,13 @@
 var questions = [{
     question: "What is the official language of China?",
     choices: ["Mandarian", "Cantonese", "English"],
-    correctAnswer: 0
+    correctAnswer: 0,
+    correctAnswerText: "Mandarian"
 }, {
     question: "How tall is the Empire State Building?",
     choices: ["1399 Feet", "1454 Feet", "1776 Feet"],
-    correctAnswer: 1
+    correctAnswer: 1,
+    correctAnswerText: "1454 Feet"
 }, {
     question: "What is the busiest train station in the world?",
     choices: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, China"],
@@ -24,8 +26,12 @@ var questions = [{
     correctAnswer: 0
 }];
 
+
+
 var currentQuestion = 0;
 var correctAnswers = 0;
+
+
 
 
 function displayCurrentQuestion() {
@@ -52,6 +58,8 @@ function displayCurrentQuestion() {
 
 
 
+
+
 $(document).ready(function() {
 	displayCurrentQuestion();
 
@@ -73,7 +81,8 @@ $(document).ready(function() {
             } else {
                 $(document).find(".question");
                 if (value != questions[currentQuestion].correctAnswer){
-                    alert("Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswer);
+                    alert("Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswerText);
+                    console.log(questions[currentQuestion].correctAnswer);
                     correctAnswers++
                 }
 
@@ -83,7 +92,8 @@ $(document).ready(function() {
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
                 } else  {
-                    alert("Game Over");
+                    jAlert("Game Over");
+                    location.reload();
                 }
             } 
             
