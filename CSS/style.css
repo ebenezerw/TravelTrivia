@@ -65,7 +65,7 @@ h3 {
 	display: flex;
 	width: 700px;
 	height: 100px;
-	background: gray;
+	background: lightgray;
 	margin: 1px 0px 3px 0px;
 	align-items: center;
 	justify-content: space-around;
@@ -80,17 +80,13 @@ button {
 	border: none;
 	margin-bottom: 3px;
 	border-radius: 5px;
+	background-color: yellowgreen;
 }
 
 button:hover{
-	background-color: #008ae3;
+	background-color: deepskyblue;
 }
 
-/*#answer:hover{
-	color: orange;
-}
-
-*/
 
 
 

@@ -1,3 +1,6 @@
+//Note from Ebenezer: jQuery plug in from "http://www.jqueryscript.net/other/Simple-Easy-jQuery-Notification-Plugin-NotifIt.html"
+
+
 /*
  * notifIt! by @naoxink
  */

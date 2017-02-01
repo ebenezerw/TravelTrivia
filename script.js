@@ -1,36 +1,60 @@
-
-//list of questions
-
+//list of questions and answers
 
 var questions = [{
     question: "What is the official language of China?",
-    choices: ["Mandarian", "Cantonese", "English"],
-    correctAnswer: 0,
-    correctAnswerText: "Mandarian"
+    answers: ["Mandarian", "Cantonese", "English"],
+    rightAnswer: 0,
+    rightAnswerText: "Mandarian"
 }, {
     question: "How tall is the Empire State Building?",
-    choices: ["1399 Feet", "1454 Feet", "1776 Feet"],
-    correctAnswer: 1,
-    correctAnswerText: "1454 Feet"
+    answers: ["1399 Feet", "1454 Feet", "1776 Feet"],
+    rightAnswer: 1,
+    rightAnswerText: "1454 Feet"
 }, {
     question: "What is the busiest train station in the world?",
-    choices: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, China"],
-    correctAnswer: 0
+    answers: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, China"],
+    rightAnswer: 0,
+    rightAnswerText: "placeholder"
 }, {
     question: "What is the longest river?",
-    choices: ["Nile", "Amazon", "Mississippi"],
-    correctAnswer: 0
+    answers: ["Nile", "Amazon", "Mississippi"],
+    rightAnswer: 0,
+    rightAnswerText: "placeholder"
 }, {
     question: "What is the busiest tube station in the London?",
-    choices: ["Waterloo", "Baker Street", "Kings Cross"],
-    correctAnswer: 0
+    answers: ["Waterloo", "Baker Street", "Kings Cross"],
+    rightAnswer: 0,
+    rightAnswerText: "placeholder"
+}, {
+    question: "What is the official language of China?",
+    answers: ["Mandarian", "Cantonese", "English"],
+    rightAnswer: 0,
+    rightAnswerText: "Mandarian"
+}, {
+    question: "What is the official language of China?",
+    answers: ["Mandarian", "Cantonese", "English"],
+    rightAnswer: 0,
+    rightAnswerText: "Mandarian"
+}, {
+    question: "What is the official language of China?",
+    answers: ["Mandarian", "Cantonese", "English"],
+    rightAnswer: 0,
+    rightAnswerText: "Mandarian"
+}, {
+    question: "What is the official language of China?",
+    answers: ["Mandarian", "Cantonese", "English"],
+    rightAnswer: 0,
+    rightAnswerText: "Mandarian"
+}, {
+    question: "What is the official language of China?",
+    answers: ["Mandarian", "Cantonese", "English"],
+    rightAnswer: 0,
+    rightAnswerText: "Mandarian"
 }];
 
 
 
 var currentQuestion = 0;
-var correctAnswers = 0;
-
 
 
 
@@ -38,40 +62,45 @@ function displayCurrentQuestion() {
 
     console.log("In display current Question");
 
-    var question = questions[currentQuestion].question;
-    var questionClass = $(document).find(".question");
+    var questionText = questions[currentQuestion].question;
+    var questionArea = $(document).find(".question");
     var choiceList = $(document).find(".answer");
-    var numChoices = questions[currentQuestion].choices.length;
+    var numOfAnswers = questions[currentQuestion].answers.length;
 
     
-    $(questionClass).text(question);
+    $(questionArea).text(questionText);
     $(choiceList).find(".answer").remove();
  
 
     var choice;
-    for (i = 0; i < numChoices; i++) {
-        choice = questions[currentQuestion].choices[i];
- $('<div class="answer"><input type="radio" value=' + i + ' name="radio" />' + choice + '</div>').appendTo(choiceList);
+    for (i = 0; i < numOfAnswers; i++) {
+        choice = questions[currentQuestion].answers[i];
+    $('<div class="answer"><input type="radio" value=' + i + ' name="radio" />' + choice + '</div>').appendTo(choiceList);
     }
 };
 
 
-
+//displays the first question and answer choices once the page is loaded
 $(document).ready(function() {
 	displayCurrentQuestion();
      $('.resetButton').css("display", "none");
+
     // On clicking submit, display the next question
+
     $(this).find(".submitButton").on("click", function () {
 
             value = $("input[type='radio']:checked").val();
 
             if (value == undefined) {
-                $(document).find(".submitButton").text("Please select an answer");
+
+                //this adds error next in the question area if no answer is selected
+                $(document).find(".question").append("<br>" + " " + "Please select an answer!").css("text-align", "center");
     
             } else {
                 
+                //dispalys "success" pop up if the correct answer is selected and moves to the next set of answers
                 $(document).find(".question");
-                if (value == questions[currentQuestion].correctAnswer) {               
+                if (value == questions[currentQuestion].rightAnswer) {               
 
                     notif({
                         msg: "Correct!",
@@ -80,39 +109,42 @@ $(document).ready(function() {
                         timeout: 3000
                     });
 
-                    correctAnswers++;
 
             } else {
+                
+                //displays "error" popup with the text of the correct answer if wrong answer is selected. moves on to next set of answers
                 $(document).find(".question");
-                if (value != questions[currentQuestion].correctAnswer){
+                if (value != questions[currentQuestion].rightAnswer) {
 
                     notif({
-                        msg: "Wrong! Correct answer is" + " " + questions[currentQuestion].correctAnswerText,
+                        msg: "Wrong! Correct answer is" + " " + questions[currentQuestion].rightAnswerText,
                         type: "error",
                         position: "center",
-                        timeout: 5000
+                        timeout: 3000
                     })
 
-                    correctAnswers++
                 }
 
             }
 
                 currentQuestion++;
+
                 if (currentQuestion < questions.length) {
                     displayCurrentQuestion();
 
-                } else  {
                     
+            //displays 'gameover' alert at the end of the game. hides submit button and displays reset button
+            } else  {
                     
-                    setTimeout (function(){
-                        $(".resetButton").css("display", "block");
-                        $(".submitButton").css("display", "none");
-                        notif({
-                            msg: "Game Over! Click the Reset button bellow to play again.",
-                            type: "error",
-                            position: "right",
-                            autohide: 0
+                //delayed function at the end of the game to remove the     
+                setTimeout (function(){
+                    $(".resetButton").css("display", "block");
+                    $(".submitButton").css("display", "none");
+                    notif({
+                        msg: "Game Over! Click the Reset button at the bottom to play again.",
+                        type: "info",
+                        position: "right",
+                        autohide: 0
 
                         })
 
@@ -126,12 +158,16 @@ $(document).ready(function() {
 
 });
 
+//assigns the reload function to the reset button
+
 $(".resetButton").on("click", function () {
     location.reload();
 })
 
 
 
+
+//code I had at the begging to change the css properties of the answer on click or mouseover. leaving here for now since i might try to add that in the future
 
 
 
