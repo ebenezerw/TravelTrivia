@@ -6,50 +6,30 @@ var questions = [{
     rightAnswer: 0,
     rightAnswerText: "Mandarian"
 }, {
-    question: "How tall is the Empire State Building?",
-    answers: ["1399 Feet", "1454 Feet", "1776 Feet"],
+    question: "The island of Rhodes belongs to which Mediterranean country?",
+    answers: ["Italy", "Greece", "Croatia"],
     rightAnswer: 1,
-    rightAnswerText: "1454 Feet"
+    rightAnswerText: "Greece"
 }, {
-    question: "What is the busiest train station in the world?",
-    answers: ["Grand Central, NY", "Shibuya, Tokyo", "Beijing Central, China"],
-    rightAnswer: 0,
-    rightAnswerText: "placeholder"
+    question: "Euro tunnel links which two countries?",
+    answers: ["Spain and Italy", "France and Germany", "England and France"],
+    rightAnswer: 2,
+    rightAnswerText: "England and France"
 }, {
-    question: "What is the longest river?",
-    answers: ["Nile", "Amazon", "Mississippi"],
-    rightAnswer: 0,
-    rightAnswerText: "placeholder"
+    question: "If you need an ambulance in Russia, you should dial which number?",
+    answers: ["911", "112", "123"],
+    rightAnswer: 1,
+    rightAnswerText: "112"
 }, {
-    question: "What is the busiest tube station in the London?",
-    answers: ["Waterloo", "Baker Street", "Kings Cross"],
+    question: "Which is the oldest continously inhabited city in the world?",
+    answers: ["Damascus, Syria", "Rome, Italy", "Cairo, Egypt"],
     rightAnswer: 0,
-    rightAnswerText: "placeholder"
+    rightAnswerText: "Damascus, Syria"
 }, {
-    question: "What is the official language of China?",
-    answers: ["Mandarian", "Cantonese", "English"],
+    question: "What is Ebenezer's favorite place to visit?",
+    answers: ["Amalfi Coast, Italy", "Osaka, Japan", "Barcelona, Spain"],
     rightAnswer: 0,
-    rightAnswerText: "Mandarian"
-}, {
-    question: "What is the official language of China?",
-    answers: ["Mandarian", "Cantonese", "English"],
-    rightAnswer: 0,
-    rightAnswerText: "Mandarian"
-}, {
-    question: "What is the official language of China?",
-    answers: ["Mandarian", "Cantonese", "English"],
-    rightAnswer: 0,
-    rightAnswerText: "Mandarian"
-}, {
-    question: "What is the official language of China?",
-    answers: ["Mandarian", "Cantonese", "English"],
-    rightAnswer: 0,
-    rightAnswerText: "Mandarian"
-}, {
-    question: "What is the official language of China?",
-    answers: ["Mandarian", "Cantonese", "English"],
-    rightAnswer: 0,
-    rightAnswerText: "Mandarian"
+    rightAnswerText: "Amalfi Coast, Italy"
 }];
 
 
@@ -117,7 +97,7 @@ $(document).ready(function() {
                 if (value != questions[currentQuestion].rightAnswer) {
 
                     notif({
-                        msg: "Wrong! Correct answer is" + " " + questions[currentQuestion].rightAnswerText,
+                        msg: "Wrong! The correct answer is" + " " + questions[currentQuestion].rightAnswerText,
                         type: "error",
                         position: "center",
                         timeout: 3000
@@ -136,7 +116,7 @@ $(document).ready(function() {
             //displays 'gameover' alert at the end of the game. hides submit button and displays reset button
             } else  {
                     
-                //delayed function at the end of the game to remove the     
+                //delayed function at the end of the game to remove the submit button and replace with reset button     
                 setTimeout (function(){
                     $(".resetButton").css("display", "block");
                     $(".submitButton").css("display", "none");
