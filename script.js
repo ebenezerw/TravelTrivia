@@ -38,7 +38,7 @@ var currentQuestion = 0;
 
 
 
-function displayCurrentQuestion() {
+function showCurrentQuestion() {
 
     console.log("In display current Question");
 
@@ -62,7 +62,7 @@ function displayCurrentQuestion() {
 
 //displays the first question and answer choices once the page is loaded
 $(document).ready(function() {
-	displayCurrentQuestion();
+	showCurrentQuestion();
      $('.resetButton').css("display", "none");
 
     // On clicking submit, display the next question
@@ -110,7 +110,7 @@ $(document).ready(function() {
                 currentQuestion++;
 
                 if (currentQuestion < questions.length) {
-                    displayCurrentQuestion();
+                    showCurrentQuestion();
 
                     
             //displays 'gameover' alert at the end of the game. hides submit button and displays reset button
