@@ -32,9 +32,15 @@ var questions = [{
     rightAnswerText: "Amalfi Coast, Italy"
 }];
 
+// D.H.
+// Naming the above Array "questions" is similar to its "question" attribute
+// May become confusing in long run
+// Possible names for above array: "exam", "quiz", "trivia", "list"
+// D.H.
 
-
-var currentQuestion = 0;
+var currentQuestion = 0; // remove the ==> var <==, the var is not global
+                         // and can't be found inside document()
+                         // or showCurrentQuestion()
 
 
 
@@ -47,10 +53,15 @@ function showCurrentQuestion() {
     var choiceList = $(document).find(".answer");
     var numOfAnswers = questions[currentQuestion].answers.length;
 
-    
+
     $(questionArea).text(questionText);
     $(choiceList).find(".answer").remove();
- 
+
+
+
+//remove: var choice;
+// put "choice" inside the for loop
+//ie: var choice = questions[currentQuestion].answers[i]; (LINE 66)
 
     var choice;
     for (i = 0; i < numOfAnswers; i++) {
@@ -75,12 +86,12 @@ $(document).ready(function() {
 
                 //this adds error next in the question area if no answer is selected
                 $(document).find(".question").append("<br>" + " " + "Please select an answer!").css("text-align", "center");
-    
+
             } else {
-                
+
                 //dispalys "success" pop up if the correct answer is selected and moves to the next set of answers
                 $(document).find(".question");
-                if (value == questions[currentQuestion].rightAnswer) {               
+                if (value == questions[currentQuestion].rightAnswer) {
 
                     notif({
                         msg: "Correct!",
@@ -91,7 +102,7 @@ $(document).ready(function() {
 
 
             } else {
-                
+
                 //displays "error" popup with the text of the correct answer if wrong answer is selected. moves on to next set of answers
                 $(document).find(".question");
                 if (value != questions[currentQuestion].rightAnswer) {
@@ -112,11 +123,11 @@ $(document).ready(function() {
                 if (currentQuestion < questions.length) {
                     showCurrentQuestion();
 
-                    
+
             //displays 'gameover' alert at the end of the game. hides submit button and displays reset button
             } else  {
-                    
-                //delayed function at the end of the game to remove the submit button and replace with reset button     
+
+                //delayed function at the end of the game to remove the submit button and replace with reset button
                 setTimeout (function(){
                     $(".resetButton").css("display", "block");
                     $(".submitButton").css("display", "none");
@@ -131,9 +142,9 @@ $(document).ready(function() {
                     }, 4000);
 
                 }
-            } 
-            
-        
+            }
+
+
     });
 
 });
@@ -152,7 +163,7 @@ $(".resetButton").on("click", function () {
 
 
  //        $("#answer").on("click", function (e) {
-	// $("#answer").css("background", "orange")	
+	// $("#answer").css("background", "orange")
 	// $('#answer:not(#' + this.id + ')').css("background-color", "gray");
 	// // e.stopPropagation();
 
@@ -175,8 +186,3 @@ $(".resetButton").on("click", function () {
 // 	$('#answer:not(#' + this.id + ')').css("background-color", "gray");
 // 	// e.stopPropagation();
 // })
-
-
-
-
-
