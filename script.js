@@ -35,6 +35,7 @@ var questions = [{
 
 
 var currentQuestion = 0;
+var currentScore = 0;
 
 
 
@@ -73,14 +74,23 @@ $(document).ready(function() {
 
             if (value == undefined) {
 
-                //this adds error next in the question area if no answer is selected
-                $(document).find(".question").append("<br>" + " " + "Please select an answer!").css("text-align", "center");
+                //alert if no answer selected
+
+                notif({
+                    msg: "You must select an answer",
+                    type: "error",
+                    position: "center",
+                    timeout: 3000
+                });
+
+
 
             } else {
 
                 //dispalys "success" pop up if the correct answer is selected and moves to the next set of answers
                 $(document).find(".question");
                 if (value == questions[currentQuestion].rightAnswer) {
+                  
 
                     notif({
                         msg: "Correct!",
@@ -88,6 +98,8 @@ $(document).ready(function() {
                         position: "center",
                         timeout: 3000
                     });
+
+
 
 
             } else {
@@ -101,13 +113,15 @@ $(document).ready(function() {
                         type: "error",
                         position: "center",
                         timeout: 3000
-                    })
+                    });
 
                 }
 
             }
 
+
                 currentQuestion++;
+
 
                 if (currentQuestion < questions.length) {
                     showCurrentQuestion();
@@ -138,40 +152,9 @@ $(document).ready(function() {
 
 });
 
+
 //assigns the reload function to the reset button
 
 $(".resetButton").on("click", function () {
     location.reload();
 })
-
-
-
-
-//code I had at the begging to change the css properties of the answer on click or mouseover. leaving here for now since i might try to add that in the future
-
-
-
-//         $("#answer").on("click", function (e) {
-// 	$("#answer").css("background", "orange")
-// 	$('#answer:not(#' + this.id + ')').css("background-color", "gray");
-// 	// e.stopPropagation();
-//
-//     })
-//
-//
-// this changes the background of the answer when you hover over it
-//
-// $(".answer").on("click", function (a) {
-// 	$("#answer").css("color", "#6bcfe3");
-// 	$('#answer:not(#' + this.id + ')').css("color", "black");
-// 	a.stopPropagation();
-// })
-//
-//
-// This changes the background color of the selected answer to orange
-//
-// $("#answer").on("click", function (e) {
-// 	$("#answer").css("background", "orange")
-// 	$('#answer:not(#' + this.id + ')').css("background-color", "gray");
-// 	// e.stopPropagation();
-// })

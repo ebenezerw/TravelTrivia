@@ -28,6 +28,13 @@ h3 {
 	color: white;
 }
 
+.scoreBox {
+	text-align: center;
+	margin: 0px;
+	font-size: 14px;
+	color: white;
+}
+
 .travelPic {
 	height: 300px;
 	width: 700px;
