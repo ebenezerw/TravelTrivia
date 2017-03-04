@@ -1,4 +1,4 @@
-# Project1_TravelTrivia
+# Travel Trivia
 
 # User Stories
 
