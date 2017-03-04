@@ -2,9 +2,9 @@
 
 var questions = [{
     question: "What is the official language of China?",
-    answers: ["Mandarian", "Cantonese", "English"],
+    answers: ["Mandarin", "Cantonese", "English"],
     rightAnswer: 0,
-    rightAnswerText: "Mandarian"
+    rightAnswerText: "Mandarin"
 }, {
     question: "The island of Rhodes belongs to which Mediterranean country?",
     answers: ["Italy", "Greece", "Croatia"],
@@ -47,10 +47,10 @@ function showCurrentQuestion() {
     var choiceList = $(document).find(".answer");
     var numOfAnswers = questions[currentQuestion].answers.length;
 
-    
+
     $(questionArea).text(questionText);
     $(choiceList).find(".answer").remove();
- 
+
 
     var choice;
     for (i = 0; i < numOfAnswers; i++) {
@@ -75,12 +75,12 @@ $(document).ready(function() {
 
                 //this adds error next in the question area if no answer is selected
                 $(document).find(".question").append("<br>" + " " + "Please select an answer!").css("text-align", "center");
-    
+
             } else {
-                
+
                 //dispalys "success" pop up if the correct answer is selected and moves to the next set of answers
                 $(document).find(".question");
-                if (value == questions[currentQuestion].rightAnswer) {               
+                if (value == questions[currentQuestion].rightAnswer) {
 
                     notif({
                         msg: "Correct!",
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
 
             } else {
-                
+
                 //displays "error" popup with the text of the correct answer if wrong answer is selected. moves on to next set of answers
                 $(document).find(".question");
                 if (value != questions[currentQuestion].rightAnswer) {
@@ -112,11 +112,11 @@ $(document).ready(function() {
                 if (currentQuestion < questions.length) {
                     showCurrentQuestion();
 
-                    
+
             //displays 'gameover' alert at the end of the game. hides submit button and displays reset button
             } else  {
-                    
-                //delayed function at the end of the game to remove the submit button and replace with reset button     
+
+                //delayed function at the end of the game to remove the submit button and replace with reset button
                 setTimeout (function(){
                     $(".resetButton").css("display", "block");
                     $(".submitButton").css("display", "none");
@@ -131,9 +131,9 @@ $(document).ready(function() {
                     }, 4000);
 
                 }
-            } 
-            
-        
+            }
+
+
     });
 
 });
@@ -151,32 +151,27 @@ $(".resetButton").on("click", function () {
 
 
 
- //        $("#answer").on("click", function (e) {
-	// $("#answer").css("background", "orange")	
-	// $('#answer:not(#' + this.id + ')').css("background-color", "gray");
-	// // e.stopPropagation();
-
- //    })
-
-
+//         $("#answer").on("click", function (e) {
+// 	$("#answer").css("background", "orange")
+// 	$('#answer:not(#' + this.id + ')').css("background-color", "gray");
+// 	// e.stopPropagation();
+//
+//     })
+//
+//
 // this changes the background of the answer when you hover over it
-
+//
 // $(".answer").on("click", function (a) {
 // 	$("#answer").css("color", "#6bcfe3");
 // 	$('#answer:not(#' + this.id + ')').css("color", "black");
 // 	a.stopPropagation();
 // })
-
-
+//
+//
 // This changes the background color of the selected answer to orange
-
+//
 // $("#answer").on("click", function (e) {
 // 	$("#answer").css("background", "orange")
 // 	$('#answer:not(#' + this.id + ')').css("background-color", "gray");
 // 	// e.stopPropagation();
 // })
-
-
-
-
-
